@@ -4,6 +4,8 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import Moment from "react-moment";
 import Layout from "../../components/layout";
 import Markdown from "react-markdown";
+import RecentArticles from "../../components/recent-articles";
+import ImageGallery from 'react-image-gallery';
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
@@ -11,13 +13,16 @@ export const query = graphql`
       strapiId
       title
       description
+      category {
+        name
+      }
       content
       published_at
       image {
         localFile {
           publicURL
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
@@ -31,9 +36,21 @@ export const query = graphql`
           }
         }
       }
+      gallery {
+        caption
+        localFile {
+          publicURL
+          childImageSharp {
+            fixed(width: 120) {
+              src
+            }
+          }
+        }
+      }
     }
   }
 `;
+
 
 const Article = ({ data }) => {
   const article = data.strapiArticle;
@@ -44,57 +61,78 @@ const Article = ({ data }) => {
     article: true,
   };
 
+  const images = article.gallery && article.gallery.map(image => ({
+    original: image.localFile.publicURL,
+    thumbnail: image.localFile.childImageSharp.fixed.src,
+  }));
+  
   return (
     <Layout seo={seo}>
       <div>
-        <div style={{ display: "grid" }}>
-          <GatsbyImage
-            style={{
-              gridArea: "1/1",
-            }}
-            alt={`Picture for ${article.title} article`}
-            image={article.image.localFile.childImageSharp.gatsbyImageData}
-            layout="fullWidth"
-          />
-          <div
-            style={{
-              // By using the same grid area for both, they are stacked on top of each other
-              gridArea: "1/1",
-              position: "relative",
-              // This centers the other elements inside the hero component
-              placeItems: "center",
-              display: "grid",
-            }}
-          >
-            <h1 style={{ color: `white` }}>{article.title}</h1>
-          </div>
-        </div>
         <div className="uk-section">
-          <div className="uk-container uk-container-small">
-            <Markdown source={article.content} escapeHtml={false} />
+          <div className="uk-container uk-container-medium">
 
-            <hr className="uk-divider-small" />
+            <div data-uk-grid>
+              <div className="uk-width-2-3">
+                <div className="blog-hero uk-position-relative">
 
-            <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-              <div>
-                {article.author.picture && (
                   <GatsbyImage
-                    image={
-                      article.author.picture.localFile.childImageSharp
-                        .gatsbyImageData
-                    }
-                    alt={`Picture of ${article.author.name}`}
-                    style={{ borderRadius: "50%" }}
-                  />
-                )}
+                    style={{
+                      gridArea: "1/1",
+                    }}
+                    alt={`Picture for ${article.title} article`}
+                    image={article.image.localFile.childImageSharp.gatsbyImageData} />
+                  <div className="blog-hero__title">
+                    <div className="leading-post__category leading-post__category--red">
+                      {article.category.name}
+                    </div>
+                    <h1>{article.title}</h1>
+
+                    <div className="post-info uk-flex uk-flex-between">
+                      <div className="post-info__author">
+                        {article.author.name}
+                      </div>
+                      <div className="post-info__date">
+                        <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <Markdown source={article.content} escapeHtml={false} />
+                {images && <ImageGallery items={images} showPlayButton={false} autoPlay={false} />}
+                
+                <hr className="uk-divider-small" />
+
+                <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+                  <div>
+                    {article.author.picture && (
+                      <GatsbyImage
+                        image={
+                          article.author.picture.localFile.childImageSharp
+                            .gatsbyImageData
+                        }
+                        alt={`Picture of ${article.author.name}`}
+                        style={{ borderRadius: "50%" }} />
+                    )}
+                  </div>
+                  <div className="uk-width-expand">
+                    <p className="uk-margin-remove-bottom">
+                      By {article.author.name}
+                    </p>
+                    <p className="uk-text-meta uk-margin-remove-top">
+                      <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="uk-width-expand">
-                <p className="uk-margin-remove-bottom">
-                  By {article.author.name}
-                </p>
-                <p className="uk-text-meta uk-margin-remove-top">
-                  <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-                </p>
+              <div className="uk-width-1-3">
+                <div data-uk-sticky="offset: 100">
+
+                  <RecentArticles />
+                </div>
+
               </div>
             </div>
           </div>

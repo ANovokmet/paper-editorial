@@ -48,6 +48,20 @@
     "author": {
       "via": "articles",
       "model": "writer"
+    },
+    "gallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "tags": {
+      "via": "articles",
+      "collection": "tags"
     }
   }
 }

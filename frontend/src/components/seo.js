@@ -91,6 +91,10 @@ const SEO = ({ seo = {} }) => {
           href:
             "https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css",
         },
+        // {
+        //   rel: "stylesheet",
+        //   href: "~react-image-gallery/styles/css/image-gallery.css",
+        // }
       ]}
       script={[
         {
