@@ -17,7 +17,7 @@ const DetailPost = ({ article }) => {
         <div className="detail-info uk-flex uk-flex-between">
           <div className="detail-info__author">
             <span data-uk-icon="pencil"></span>
-            {article.node.author.name}
+            {article.node.author ? article.node.author.name : 'Unknown'}
           </div>
           <div className="detail-info__date">
             <span data-uk-icon="clock"></span>

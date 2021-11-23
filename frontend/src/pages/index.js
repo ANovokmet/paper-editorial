@@ -19,10 +19,10 @@ const IndexPage = () => {
       <div className="uk-section uk-section-muted">
 
         <div className="uk-container">
-          <div className="uk-flex uk-flex-between">
+          {/* <div className="uk-flex uk-flex-between">
             <h1>{data.strapiHomepage.hero.title}</h1>
             <h2>{data.strapiHomepage.hero.subtitle}</h2>
-          </div>
+          </div> */}
           <ArticlesComponent articles={data.featuredArticles.edges} />
         </div>
 
@@ -32,7 +32,7 @@ const IndexPage = () => {
         <div className="uk-container">
           <div data-uk-grid>
             <div className="uk-width-1-1 uk-width-2-5@s">
-              <div data-uk-sticky="offset: 100">
+              <div data-uk-sticky="offset: 100; media: @m">
                 <RecentArticles />
               </div>
 

@@ -8,6 +8,12 @@ const Nav = () => (
         strapiGlobal {
           siteName
         }
+        strapiHomepage {
+          hero {
+            title
+            subtitle
+          }
+        }
         allStrapiCategory {
           edges {
             node {
@@ -25,7 +31,7 @@ const Nav = () => (
             <ul className="uk-navbar-nav">
               <li>
                 <Link to="/" className="uk-link-text uk-flex-column">
-                  {data.strapiGlobal.siteName}
+                  {data.strapiGlobal.siteName} - {data.strapiHomepage.hero.subtitle}
                 </Link>
               </li>
             </ul>
@@ -33,9 +39,19 @@ const Nav = () => (
         </nav>
 
 
-        <nav className="navbar navbar--secondary uk-navbar-container" data-uk-navbar data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; top: 500; animation: uk-animation-slide-top">
+        <nav className="navbar navbar--secondary uk-navbar-container" data-uk-navbar data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; animation: uk-animation-slide-top">
+          
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active">
+                  <Link to="/" className="uk-link-text uk-flex-column">
+                    <span data-uk-icon="home"></span>
+                  </Link>
+                </li> 
+            </ul>
+        </div>
           <div className="uk-navbar-center">
-            <ul className="uk-navbar-nav uk-text-center">
+            <ul className="uk-navbar-nav uk-text-center uk-visible@m">
               {data.allStrapiCategory.edges.map((category, i) => (
                 <li key={`category__${category.node.slug}`}>
                   <Link to={`/category/${category.node.slug}`}>
@@ -45,8 +61,23 @@ const Nav = () => (
               ))}
             </ul>
           </div>
+          <div className="uk-navbar-right uk-hidden@m">
+            <a href="#" className="uk-navbar-toggle" data-uk-navbar-toggle-icon data-uk-toggle="target: #sidenav"></a>
+          </div>
         </nav>
-
+        <div id="sidenav" uk-offcanvas="flip: true" className="uk-offcanvas">
+          <div className="uk-offcanvas-bar">
+              <ul className="uk-nav">
+                {data.allStrapiCategory.edges.map((category, i) => (
+                  <li key={`category__${category.node.slug}`}>
+                    <Link to={`/category/${category.node.slug}`}>
+                      {category.node.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+          </div>
+      </div>
       </div>
     )}
   />

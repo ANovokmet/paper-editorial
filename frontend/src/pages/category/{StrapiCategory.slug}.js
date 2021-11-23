@@ -60,7 +60,7 @@ const Category = ({ data }) => {
           <div className="uk-width-1">
             <div data-uk-grid>
 
-              <div className="uk-width-2-3">
+              <div className="uk-width-1-1 uk-width-2-3@m">
                 {articles.map((article, i) => (
                   <div key={i} style={{marginBottom: 20}}>
                     <DetailPost article={article} key={i} />
@@ -68,8 +68,8 @@ const Category = ({ data }) => {
                 ))}
               </div>
 
-              <div className="uk-width-1-3">
-                <div data-uk-sticky="offset: 100">
+              <div className="uk-width-1-1 uk-width-1-3@m">
+                <div data-uk-sticky="offset: 100; media: @m">
                   <RecentArticles />
                 </div>
               </div>

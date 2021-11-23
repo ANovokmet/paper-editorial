@@ -73,7 +73,7 @@ const Article = ({ data }) => {
           <div className="uk-container uk-container-medium">
 
             <div data-uk-grid>
-              <div className="uk-width-2-3">
+              <div className="uk-width-1-1 uk-width-2-3@m">
                 <div className="blog-hero uk-position-relative">
 
                   <GatsbyImage
@@ -101,7 +101,7 @@ const Article = ({ data }) => {
                 </div>
 
                 <Markdown source={article.content} escapeHtml={false} />
-                {images && <ImageGallery items={images} showPlayButton={false} autoPlay={false} />}
+                {images && images.length ? <ImageGallery items={images} showPlayButton={false} autoPlay={false} /> : null}
                 
                 <hr className="uk-divider-small" />
 
@@ -127,8 +127,8 @@ const Article = ({ data }) => {
                   </div>
                 </div>
               </div>
-              <div className="uk-width-1-3">
-                <div data-uk-sticky="offset: 100">
+              <div className="uk-width-1-1 uk-width-1-3@m">
+                <div data-uk-sticky="offset: 100; media: @m">
 
                   <RecentArticles />
                 </div>

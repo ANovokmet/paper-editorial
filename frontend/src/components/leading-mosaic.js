@@ -10,14 +10,14 @@ const Articles = ({ articles }) => {
   return (
     <div className="uk-grid-collapse uk-grid card-grid uk-height-large@s" data-uk-grid="true">
 
-      <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-2 uk-height-1-1@s uk-height-large">
+      <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-1@s uk-height-large">
         <Card article={leftArticle} />
       </div>
 
-      <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-2 uk-height-1-1@s uk-grid-match uk-grid-collapse uk-grid uk-height-large" data-uk-grid="true">
+      <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-1@s uk-grid-match uk-grid-collapse uk-grid uk-height-large" data-uk-grid="true">
         {rightArticles.map((article, i) => {
           return (
-            <div className="uk-width-1-2 uk-height-1-2" key={i}>
+            <div className="uk-width-1-2 uk-height-small-medium" key={i}>
               <Card article={article} />
             </div>
           );

@@ -166,6 +166,8 @@ img:hover {
 
 .recent-post--hot .recent-post__thumbnail, .hot-news__thumbnail {
   margin-bottom: 15px;
+  height: 200px;
+  overflow: hidden;
 }
 
 .post-wrapper {}
@@ -177,7 +179,14 @@ img:hover {
 
 .leading-post__thumbnail {
   /* position: absolute; */
+  
 }
+
+.area .leading-post__thumbnail {
+  height: 200px;
+  overflow: hidden;
+}
+
 
 .leading-post__content {
   z-index: 1;
@@ -231,4 +240,8 @@ img:hover {
 .blog-hero__title h1 {
   margin: 0;
   color: white;
+}
+
+.uk-height-small-medium {
+  height: 225px;
 }
