@@ -43,7 +43,7 @@ const LeadingPost = ({ article }) => {
         </div>
         <div className="post-info uk-flex uk-flex-between">
           <div className="post-info__author">
-            <span data-uk-icon="pencil"></span>{article.node.author.name}
+            <span data-uk-icon="pencil"></span>{article.node.author ? article.node.author.name : 'Unknown'}
           </div>
           <div className="post-info__date">
             <span data-uk-icon="clock"></span>{article.node.created_at}

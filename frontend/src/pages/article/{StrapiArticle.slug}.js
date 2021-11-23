@@ -90,7 +90,7 @@ const Article = ({ data }) => {
 
                     <div className="post-info uk-flex uk-flex-between">
                       <div className="post-info__author">
-                        {article.author.name}
+                        {article.author ? article.author.name : 'Unknown'}
                       </div>
                       <div className="post-info__date">
                         <Moment format="MMM Do YYYY">{article.published_at}</Moment>
@@ -113,13 +113,13 @@ const Article = ({ data }) => {
                           article.author.picture.localFile.childImageSharp
                             .gatsbyImageData
                         }
-                        alt={`Picture of ${article.author.name}`}
+                        alt={`Picture of ${article.author ? article.author.name : 'Unknown'}`}
                         style={{ borderRadius: "50%" }} />
                     )}
                   </div>
                   <div className="uk-width-expand">
                     <p className="uk-margin-remove-bottom">
-                      By {article.author.name}
+                      By {article.author ? article.author.name : 'Unknown'}
                     </p>
                     <p className="uk-text-meta uk-margin-remove-top">
                       <Moment format="MMM Do YYYY">{article.published_at}</Moment>
