@@ -75,7 +75,7 @@ h2 {
   background: linear-gradient(0deg, rgba(231,32,118,1) 31%, rgba(217,21,153,0.6589986336331408) 100%);
 }
 
-h4 {
+.area h4 {
   font-family: 'Exceptional';
   font-size: 2rem;
   color: #E72076;
