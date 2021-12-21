@@ -3,11 +3,16 @@ a {
 }
 
 h1 {
-  font-family: Staatliches !important;
+  font-family: Exceptional !important;
   font-size: 80px !important;
 }
 h2 {
-  font-family: Staatliches !important;
+  font-family: Exceptional !important;
+}
+
+@font-face {
+  font-family: "Exceptional";
+  src: url("../fonts/ExceptionalAlt-Regular.woff") format('woff');
 }
 
 #category {
@@ -49,13 +54,32 @@ h2 {
 }
 
 .navbar--primary {
-  background: #66bfbf !important;
+  background: #fcfefe !important;
 }
 
-.navbar.navbar--primary li>a {
+.navbar__title {
   font-size: 44px;
   font-family: 'Staatliches';
-  color: white;
+  color: black;
+}
+
+.navbar__subtitle {
+  font-family: 'Exceptional';
+  color: #E72076;
+  font-size: 32px;
+  margin: -40px 0px 11px 67px;
+}
+
+.section_gradient {
+  background: rgb(231,32,118);
+  background: linear-gradient(0deg, rgba(231,32,118,1) 31%, rgba(217,21,153,0.6589986336331408) 100%);
+}
+
+h4 {
+  font-family: 'Exceptional';
+  font-size: 2rem;
+  color: #E72076;
+  font-weight: 400;
 }
 
 .navbar.navbar--secondary {

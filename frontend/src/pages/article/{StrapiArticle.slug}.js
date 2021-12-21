@@ -107,19 +107,19 @@ const Article = ({ data }) => {
 
                 <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
                   <div>
-                    {article.author.picture && (
+                    {article.author && article.author.picture && (
                       <GatsbyImage
                         image={
                           article.author.picture.localFile.childImageSharp
                             .gatsbyImageData
                         }
-                        alt={`Picture of ${article.author ? article.author.name : 'Unknown'}`}
+                        alt={`Picture of ${article.author ? article.author.name : 'Autor'}`}
                         style={{ borderRadius: "50%" }} />
                     )}
                   </div>
                   <div className="uk-width-expand">
                     <p className="uk-margin-remove-bottom">
-                      By {article.author ? article.author.name : 'Unknown'}
+                      By {article.author ? article.author.name : 'Autor'}
                     </p>
                     <p className="uk-text-meta uk-margin-remove-top">
                       <Moment format="MMM Do YYYY">{article.published_at}</Moment>

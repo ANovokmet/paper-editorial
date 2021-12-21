@@ -16,8 +16,7 @@ const IndexPage = () => {
   return (
     <Layout seo={data.strapiHomepage.seo}>
 
-      <div className="uk-section uk-section-muted">
-
+      <div className="uk-section section_gradient" style={{position: 'relative'}}>
         <div className="uk-container">
           {/* <div className="uk-flex uk-flex-between">
             <h1>{data.strapiHomepage.hero.title}</h1>
@@ -42,7 +41,7 @@ const IndexPage = () => {
 
               <div className="uk-width-1" style={{ marginBottom: 30 }}>
 
-                <Area title="Top">
+                <Area title="U trendu">
                   <NewsSlider articles={data.topArticles.edges} />
                 </Area>
 

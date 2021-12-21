@@ -30,11 +30,12 @@ const Nav = () => (
           <div className="uk-navbar-center">
             <ul className="uk-navbar-nav">
               <li>
-                <Link to="/" className="uk-link-text uk-flex-column">
-                  {data.strapiGlobal.siteName} - {data.strapiHomepage.hero.subtitle}
-                </Link>
               </li>
             </ul>
+                <Link to="/" className="uk-link-text uk-flex-column">
+                  <div className="navbar__title">{data.strapiGlobal.siteName}</div>
+                  <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
+                </Link>
           </div>
         </nav>
 
