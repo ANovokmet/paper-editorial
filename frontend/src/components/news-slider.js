@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
-
+import Moment from "react-moment";
 
 const HotNews = ({ article }) => {
   return (
@@ -25,7 +25,7 @@ const HotNews = ({ article }) => {
           </div>
           <div className="post-info__date">
             <span data-uk-icon="clock"></span>
-            {article.node.created_at}
+            <Moment format="DD/MM/YYYY">{article.node.created_at}</Moment>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ const DetailPost = ({ article }) => {
           </div>
           <div className="detail-info__date">
             <span data-uk-icon="clock"></span>
-            <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+            <Moment format="DD/MM/YYYY">{article.published_at}</Moment>
           </div>
         </div>
         <div className="detail-post__title">

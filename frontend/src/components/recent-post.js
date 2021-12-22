@@ -24,7 +24,7 @@ const RecentPost = ({ article }) => {
           </div>
           <div className="post-info__date">
             <span data-uk-icon="clock"></span>
-            <Moment format="MMM Do YYYY">{article.node.published_at}</Moment>
+            <Moment format="DD/MM/YYYY">{article.node.published_at}</Moment>
           </div>
         </div>
       </div>

@@ -93,7 +93,7 @@ const Article = ({ data }) => {
                         {article.author ? article.author.name : 'Unknown'}
                       </div>
                       <div className="post-info__date">
-                        <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                        <Moment format="DD/MM/YYYY">{article.published_at}</Moment>
                       </div>
 
                     </div>
@@ -122,7 +122,7 @@ const Article = ({ data }) => {
                       By {article.author ? article.author.name : 'Autor'}
                     </p>
                     <p className="uk-text-meta uk-margin-remove-top">
-                      <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                      <Moment format="DD/MM/YYYY">{article.published_at}</Moment>
                     </p>
                   </div>
                 </div>

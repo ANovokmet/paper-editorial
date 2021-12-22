@@ -8,7 +8,7 @@ import Layout from "../components/layout";
 import ArticlesComponent from "../components/leading-mosaic";
 import NewsSlider from "../components/news-slider";
 import RecentArticles from "../components/recent-articles";
-
+import 'moment/locale/hr';
 
 const IndexPage = () => {
   const data = useStaticQuery(query);

@@ -42,9 +42,9 @@ const Nav = () => (
 
         <nav className="navbar navbar--secondary uk-navbar-container" data-uk-navbar data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; animation: uk-animation-slide-top">
           
-        <div class="uk-navbar-left">
-            <ul class="uk-navbar-nav">
-                <li class="uk-active">
+        <div className="uk-navbar-left">
+            <ul className="uk-navbar-nav">
+                <li className="uk-active">
                   <Link to="/" className="uk-link-text uk-flex-column">
                     <span data-uk-icon="home"></span>
                   </Link>

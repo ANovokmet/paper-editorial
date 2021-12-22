@@ -1,6 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+import Moment from "react-moment";
 
 const colors = [
   "red",
@@ -46,7 +47,8 @@ const LeadingPost = ({ article }) => {
             <span data-uk-icon="pencil"></span>{article.node.author ? article.node.author.name : 'Unknown'}
           </div>
           <div className="post-info__date">
-            <span data-uk-icon="clock"></span>{article.node.created_at}
+            <span data-uk-icon="clock"></span>
+            <Moment format="DD/MM/YYYY">{article.node.created_at}</Moment>
           </div>
 
         </div>

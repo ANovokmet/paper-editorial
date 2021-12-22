@@ -70,6 +70,13 @@ h2 {
   margin: -40px 0px 11px 67px;
 }
 
+@media (max-width: 768px) {
+  .navbar__subtitle {
+    font-size: 22px;
+    margin: -33px 0px 11px 0px;
+  }
+}
+
 .section_gradient {
   background: rgb(231,32,118);
   background: linear-gradient(0deg, rgba(231,32,118,1) 31%, rgba(217,21,153,0.6589986336331408) 100%);
@@ -259,11 +266,13 @@ img:hover {
   padding: 20px;
   bottom: 0;
   color: white;
+  background-image: linear-gradient(to bottom, #ffffff00, #000000ba);
 }
 
 .blog-hero__title h1 {
   margin: 0;
   color: white;
+  font-size: 4rem !important;
 }
 
 .uk-height-small-medium {

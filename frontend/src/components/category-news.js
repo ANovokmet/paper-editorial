@@ -3,6 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import Area from '../components/area';
 import RecentPost from "./recent-post";
+import Moment from "react-moment";
 
 const LeadingPost = ({ article }) => {
   return (
@@ -31,7 +32,7 @@ const LeadingPost = ({ article }) => {
           </div>
           <div className="post-info__date">
             <span data-uk-icon="clock"></span>
-            {article.node.created_at}
+            <Moment format="DD/MM/YYYY">{article.node.created_at}</Moment>
           </div>
 
         </div>
