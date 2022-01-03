@@ -2,25 +2,7 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import Moment from "react-moment";
-
-const colors = [
-  "red",
-  "green",
-  "blue",
-  "orange",
-  "purple",
-];
-
-const Tag = ({ children }) => {
-  const index = children.charCodeAt(0);
-  const color = colors[index % colors.length];
-  return (
-    <div className="leading-post__category" style={{ backgroundColor: color }}>
-      {children}
-    </div>
-  );
-}
-
+import Tag from "./tag";
 
 const LeadingPost = ({ article }) => {
   return (
@@ -29,8 +11,8 @@ const LeadingPost = ({ article }) => {
         <div className="leading-post__thumbnail  card--big">
           <GatsbyImage
             className="card--big"
-            image={article.node.image.localFile.childImageSharp.gatsbyImageData}
-            alt={`Hero image`} />
+            image={article.node.image.localFile.childImageSharp.gatsbyImageData} 
+            alt={`Image`} />
         </div>
       </Link>
       <div className="leading-post__content">
@@ -44,7 +26,7 @@ const LeadingPost = ({ article }) => {
         </div>
         <div className="post-info uk-flex uk-flex-between">
           <div className="post-info__author">
-            <span data-uk-icon="pencil"></span>{article.node.author ? article.node.author.name : 'Unknown'}
+            <span data-uk-icon="pencil"></span>{article.node.author ? article.node.author.name : 'Autor'}
           </div>
           <div className="post-info__date">
             <span data-uk-icon="clock"></span>

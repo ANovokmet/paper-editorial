@@ -1,11 +1,12 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Moment from "react-moment";
 import Layout from "../../components/layout";
 import Markdown from "react-markdown";
 import RecentArticles from "../../components/recent-articles";
 import ImageGallery from 'react-image-gallery';
+import Tag from '../../components/tag';
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
@@ -15,6 +16,7 @@ export const query = graphql`
       description
       category {
         name
+        slug
       }
       content
       published_at
@@ -51,7 +53,6 @@ export const query = graphql`
   }
 `;
 
-
 const Article = ({ data }) => {
   const article = data.strapiArticle;
   const seo = {
@@ -65,7 +66,7 @@ const Article = ({ data }) => {
     original: image.localFile.publicURL,
     thumbnail: image.localFile.childImageSharp.fixed.src,
   }));
-  
+
   return (
     <Layout seo={seo}>
       <div>
@@ -75,34 +76,29 @@ const Article = ({ data }) => {
             <div data-uk-grid>
               <div className="uk-width-1-1 uk-width-2-3@m">
                 <div className="blog-hero uk-position-relative">
-
-                  <GatsbyImage
-                    style={{
-                      gridArea: "1/1",
-                    }}
-                    alt={`Picture for ${article.title} article`}
-                    image={article.image.localFile.childImageSharp.gatsbyImageData} />
-                  <div className="blog-hero__title">
-                    <div className="leading-post__category leading-post__category--red">
-                      {article.category.name}
+                  <Link to={`/category/${article.category.slug}`} className="uk-link-reset">
+                    <Tag>{article.category.name}</Tag>
+                  </Link>
+                  <h1 className="uk-margin-small">{article.title}</h1>
+                  <div className="post-info uk-flex uk-flex-between">
+                    <div className="post-info__author">
+                      {article.author ? article.author.name : 'Autor'}
                     </div>
-                    <h1>{article.title}</h1>
-
-                    <div className="post-info uk-flex uk-flex-between">
-                      <div className="post-info__author">
-                        {article.author ? article.author.name : 'Unknown'}
-                      </div>
-                      <div className="post-info__date">
-                        <Moment format="DD/MM/YYYY">{article.published_at}</Moment>
-                      </div>
-
+                    <div className="post-info__date">
+                      <Moment format="DD/MM/YYYY">{article.published_at}</Moment>
                     </div>
                   </div>
+                  <GatsbyImage
+                    className="uk-height-max-large"
+                    objectFit="contain"
+                    style={{ gridArea: "1/1" }}
+                    alt={`Picture for ${article.title} article`}
+                    image={article.image.localFile.childImageSharp.gatsbyImageData} />
                 </div>
 
                 <Markdown source={article.content} escapeHtml={false} />
                 {images && images.length ? <ImageGallery items={images} showPlayButton={false} autoPlay={false} /> : null}
-                
+
                 <hr className="uk-divider-small" />
 
                 <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
@@ -119,7 +115,7 @@ const Article = ({ data }) => {
                   </div>
                   <div className="uk-width-expand">
                     <p className="uk-margin-remove-bottom">
-                      By {article.author ? article.author.name : 'Autor'}
+                      {article.author ? article.author.name : 'Autor'}
                     </p>
                     <p className="uk-text-meta uk-margin-remove-top">
                       <Moment format="DD/MM/YYYY">{article.published_at}</Moment>

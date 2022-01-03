@@ -10,6 +10,7 @@ const HotNews = ({ article }) => {
       <div className="hot-news__thumbnail">
         <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
           <GatsbyImage
+          objectFit="center"
             image={article.node.image.localFile.childImageSharp.gatsbyImageData} alt="" />
         </Link>
       </div>
@@ -21,7 +22,7 @@ const HotNews = ({ article }) => {
         </div>
         <div className="post-info uk-flex uk-flex-between">
           <div className="post-info__author">
-            <span data-uk-icon="pencil"></span>{article.node.author ? article.node.author.name : 'Unknown'}
+            <span data-uk-icon="pencil"></span>{article.node.author ? article.node.author.name : 'Autor'}
           </div>
           <div className="post-info__date">
             <span data-uk-icon="clock"></span>

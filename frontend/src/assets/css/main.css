@@ -2,12 +2,8 @@ a {
   text-decoration: none !important;
 }
 
-h1 {
-  font-family: Exceptional !important;
-  font-size: 80px !important;
-}
-h2 {
-  font-family: Exceptional !important;
+h1, h2 {
+  font-family: Staatliches !important;
 }
 
 @font-face {
@@ -167,6 +163,17 @@ img:hover {
   border-color: #dddddd;
 }
 
+.hot-news__item:hover .hot-news__title, .recent-post:hover .recent-post__title, .detail-post:hover .detail-post__title  {
+  color: #999;
+}
+
+.hot-news__title, .recent-post__title, .detail-post__title  {
+  transition: color 0.2s ease;
+}
+.detail-post__title {
+  font-family: 'Staatliches';
+}
+
 .recent-post__title, .hot-news__title {
   font-size: 1.1rem;
   color: #303030;
@@ -208,9 +215,14 @@ img:hover {
   margin-bottom: 30px;
 }
 
-.leading-post__thumbnail {
-  /* position: absolute; */
-  
+.leading-post .leading-post__title {
+  transition: color 0.1s ease;
+}
+
+.leading-post:hover .leading-post__title {
+  color: #E72076;
+  text-shadow: 1px 1px black;
+  /* font-weight: 500; */
 }
 
 .area .leading-post__thumbnail {
@@ -236,6 +248,7 @@ img:hover {
   padding: 2px 8px;
   font-size: 10px;
   font-weight: 500;
+  color: white;
 }
 
 .leading-post__category--red {
