@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import "../assets/css/main.css";
 import Area from '../components/area';
 import CategoryNews from "../components/category-news";
 import DetailPost from "../components/detail-post";
@@ -8,7 +7,6 @@ import Layout from "../components/layout";
 import ArticlesComponent from "../components/leading-mosaic";
 import NewsSlider from "../components/news-slider";
 import RecentArticles from "../components/recent-articles";
-import 'moment/locale/hr';
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
@@ -113,13 +111,14 @@ query {
         slug
         title
         description
+        published_at
         category {
           name
         }
         image {
           localFile {
             childImageSharp {
-              gatsbyImageData(width: 800, height: 500)
+              gatsbyImageData(width: 300, height: 220)
             }
           }
         }
@@ -153,7 +152,7 @@ query {
         image {
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(width: 300, height: 220)
             }
           }
         }
@@ -184,7 +183,23 @@ query {
   ) {
     edges {
       node {
-        ...comparisonFields
+        slug
+        title
+        created_at(formatString: "ll")
+        category {
+          name
+          slug
+        }
+        author {
+          name
+        }
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
       }
     }
   }
@@ -227,7 +242,7 @@ fragment comparisonFields on StrapiArticle {
   image {
     localFile {
       childImageSharp {
-        gatsbyImageData
+        gatsbyImageData(width: 300, height: 220)
       }
     }
   }

@@ -49,6 +49,9 @@ export const query = graphql`
           }
         }
       }
+      tags {
+        Name
+      }
     }
   }
 `;
@@ -85,7 +88,7 @@ const Article = ({ data }) => {
                       {article.author ? article.author.name : 'Autor'}
                     </div>
                     <div className="post-info__date">
-                      <Moment format="DD/MM/YYYY">{article.published_at}</Moment>
+                      <Moment format="LL" locale="hr">{article.published_at}</Moment>
                     </div>
                   </div>
                   <GatsbyImage
@@ -98,6 +101,11 @@ const Article = ({ data }) => {
 
                 <Markdown source={article.content} escapeHtml={false} />
                 {images && images.length ? <ImageGallery items={images} showPlayButton={false} autoPlay={false} /> : null}
+
+                <div className="tags">
+                  <div className="tags__title">Oznake</div>
+                  {article.tags.map(tag => (<Tag>{tag.Name}</Tag>))}
+                </div>
 
                 <hr className="uk-divider-small" />
 
@@ -118,7 +126,7 @@ const Article = ({ data }) => {
                       {article.author ? article.author.name : 'Autor'}
                     </p>
                     <p className="uk-text-meta uk-margin-remove-top">
-                      <Moment format="DD/MM/YYYY">{article.published_at}</Moment>
+                      <Moment format="LL" locale="hr">{article.published_at}</Moment>
                     </p>
                   </div>
                 </div>

@@ -7,6 +7,9 @@ const Nav = () => (
       query {
         strapiGlobal {
           siteName
+          facebookUrl
+          instagramUrl
+          youtubeUrl
         }
         strapiHomepage {
           hero {
@@ -32,10 +35,21 @@ const Nav = () => (
               <li>
               </li>
             </ul>
-                <Link to="/" className="uk-link-text uk-flex-column">
-                  <div className="navbar__title">{data.strapiGlobal.siteName}</div>
-                  <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
-                </Link>
+            <Link to="/" className="uk-link-text uk-flex-column">
+              <div className="navbar__title">{data.strapiGlobal.siteName}</div>
+              <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
+            </Link>
+          </div>
+          <div className="uk-navbar-right social" style={{height:'85px'}}>
+            <div>
+              <a href={data.strapiGlobal.facebookUrl} target="_blank" data-uk-icon="icon: facebook"></a>
+            </div>
+            <div>
+              <a href={data.strapiGlobal.instagramUrl} target="_blank" data-uk-icon="icon: instagram"></a>
+            </div>
+            <div>
+              <a href={data.strapiGlobal.youtubeUrl} target="_blank" data-uk-icon="icon: youtube"></a>
+            </div>
           </div>
         </nav>
 

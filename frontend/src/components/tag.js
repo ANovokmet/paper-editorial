@@ -12,7 +12,7 @@ const Tag = ({ children }) => {
     const index = children.charCodeAt(0);
     const color = colors[index % colors.length];
     return (
-        <div className="leading-post__category" style={{ backgroundColor: color }}>
+        <div className="leading-post__category tag" style={{ backgroundColor: color }}>
             {children}
         </div>
     );

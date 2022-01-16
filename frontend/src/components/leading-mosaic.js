@@ -1,7 +1,5 @@
 import React from "react";
 import Card from "./leading-card";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Link, useStaticQuery, graphql } from "gatsby";
 
 const Articles = ({ articles }) => {
   const leftArticle = articles[0];

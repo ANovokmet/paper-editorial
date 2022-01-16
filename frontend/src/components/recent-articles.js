@@ -22,7 +22,7 @@ const RecentArticles = () => {
           image {
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(width: 150, height: 110)
               }
             }
           }

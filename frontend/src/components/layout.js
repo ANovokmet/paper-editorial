@@ -6,6 +6,8 @@ import Seo from "./seo";
 
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
+import "../assets/css/main.css";
+import 'moment/locale/hr';
 
 UIkit.use(Icons);
 
