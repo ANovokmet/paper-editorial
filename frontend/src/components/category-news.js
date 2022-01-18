@@ -10,7 +10,7 @@ const LeadingPost = ({ article }) => {
     <div className="leading-post">
       <div className="leading-post__thumbnail">
         <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
-          <GatsbyImage
+          <GatsbyImage className="uk-width-1-1"
             image={article.node.image.localFile.childImageSharp.gatsbyImageData} alt="" />
         </Link>
       </div>

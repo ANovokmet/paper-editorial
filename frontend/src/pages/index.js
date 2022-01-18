@@ -7,6 +7,7 @@ import Layout from "../components/layout";
 import ArticlesComponent from "../components/leading-mosaic";
 import NewsSlider from "../components/news-slider";
 import RecentArticles from "../components/recent-articles";
+import VideoArticles from "../components/video-articles";
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
@@ -29,9 +30,10 @@ const IndexPage = () => {
         <div className="uk-container">
           <div data-uk-grid>
             <div className="uk-width-1-1 uk-width-2-5@s">
-              <div data-uk-sticky="offset: 100; media: @m">
+              {/* <div data-uk-sticky="offset: 100; media: @m"> */}
                 <RecentArticles />
-              </div>
+                <VideoArticles />
+              {/* </div> */}
 
               {/* <img src="https://7edma.weebly.com/uploads/1/3/1/1/131192520/background-images/303929084.jpg" /> */}
             </div>

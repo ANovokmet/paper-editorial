@@ -3,11 +3,12 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import Moment from "react-moment";
 
-const RecentPost = ({ article }) => {
+const RecentPost = ({ article, video }) => {
   return (
     <div className="recent-post uk-flex">
       <div className="recent-post__thumbnail">
         <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
+          {video ? <div className="play-icon"><span data-uk-icon="icon: play-circle"></span></div> : ''}
           <GatsbyImage
             image={article.node.image.localFile.childImageSharp.gatsbyImageData} alt="" />
         </Link>
