@@ -32,7 +32,6 @@ const Nav = () => (
       <div>
         <nav className="navbar navbar--primary uk-navbar-container" data-uk-navbar>
           <div className="uk-navbar-left">
-            <img className="uk-margin-left" src={logo} style={{height: '60px'}}/>
           </div>
           <div className="uk-navbar-center">
             <ul className="uk-navbar-nav">
@@ -40,6 +39,7 @@ const Nav = () => (
               </li>
             </ul>
             <Link to="/" className="uk-link-text uk-flex-column">
+              <img className="navbar__image" src={logo} style={{height: '60px'}}/>
               <div className="navbar__title">{data.strapiGlobal.siteName}</div>
               <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
             </Link>

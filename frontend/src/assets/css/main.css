@@ -53,6 +53,14 @@ h1, h2 {
   background: #fcfefe !important;
 }
 
+.navbar__image {
+  position: absolute;
+  z-index: -1;
+  left: -25px;
+  top: 14px;
+  opacity: 0.5;
+}
+
 .navbar__title {
   font-size: 44px;
   font-family: 'Staatliches';
@@ -148,6 +156,10 @@ img:hover {
 
 .card-grid {
   position: relative;
+}
+
+.card--main .leading-post__title {
+  font-size: 40px;
 }
 
 .recent-post__thumbnail {
@@ -359,4 +371,29 @@ img:hover {
 .play-icon > .uk-icon {
   background-color: rgba(0, 0, 0, 0.48);
   border-radius: 100%;
+}
+
+
+.leading-post {
+  overflow: hidden;
+}
+
+.leading-post__thumbnail {
+  transition: transform 0.2s ease-in-out;
+}
+
+.leading-post:hover .leading-post__thumbnail {
+  transform: scale(1.1);
+}
+
+.hot-news__thumbnail  {
+  overflow: hidden;
+}
+
+.hot-news__thumbnail img {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.hot-news__thumbnail:hover img {
+  transform: scale(1.1);
 }

@@ -8,7 +8,10 @@ import RecentArticles from "../../components/recent-articles";
 
 export const query = graphql`
   query Category($slug: String!) {
-    articles: allStrapiArticle(filter: { category: { slug: { eq: $slug } } }) {
+    articles: allStrapiArticle(
+      filter: { category: { slug: { eq: $slug } } }
+      sort: {fields: published_at, order: DESC}
+    ) {
       edges {
         node {
           slug

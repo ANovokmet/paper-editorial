@@ -106,7 +106,7 @@ query {
       }
     }
   }
-  allStrapiArticle {
+  allStrapiArticle(sort: { fields: published_at, order: DESC }) {
     edges {
       node {
         strapiId
@@ -234,6 +234,7 @@ fragment comparisonFields on StrapiArticle {
   slug
   title
   created_at(formatString: "ll")
+  published_at
   category {
     name
     slug

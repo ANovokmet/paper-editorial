@@ -8,7 +8,7 @@ const Articles = ({ articles }) => {
   return (
     <div className="uk-grid-collapse uk-grid card-grid uk-height-large@s" data-uk-grid="true">
 
-      <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-1@s uk-height-large">
+      <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-1@s uk-height-large card--main">
         <Card article={leftArticle} />
       </div>
 

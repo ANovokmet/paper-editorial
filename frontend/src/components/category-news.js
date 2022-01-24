@@ -25,16 +25,14 @@ const LeadingPost = ({ article }) => {
             {article.node.title}
           </Link>
         </div>
-        <div className="post-info uk-flex uk-flex-between">
+        <div className="post-info uk-flex">
           <div className="post-info__author">
-            <span data-uk-icon="pencil"></span>
-            {article.node.author.name}
+            {article.node.author ? article.node.author.name : 'Autor'}
           </div>
+          <span className="post-info__separator">-</span>
           <div className="post-info__date">
-            <span data-uk-icon="clock"></span>
-            <Moment format="DD/MM/YYYY">{article.node.created_at}</Moment>
+            <Moment format="LL" locale="hr">{article.node.published_at}</Moment>
           </div>
-
         </div>
       </div>
     </div>
