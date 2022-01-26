@@ -36,7 +36,7 @@ const RecentArticles = () => {
   }`)
 
   return (
-    <Area title="Gledaj">
+    <Area title="Pogledajmo">
       {articles.edges.map((article, i) => (<RecentPost article={article} key={i} video={true} />))}
     </Area>
   )

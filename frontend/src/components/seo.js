@@ -41,7 +41,7 @@ const SEO = ({ seo = {} }) => {
         }
       );
     }
-    if (fullSeo.shareImage) {
+    if (fullSeo.shareImage && fullSeo.shareImage.localFile) {
       const imageUrl =
         (process.env.GATSBY_ROOT_URL || "http://localhost:8000") +
         fullSeo.shareImage.localFile.publicURL;

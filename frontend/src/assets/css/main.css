@@ -397,3 +397,18 @@ img:hover {
 .hot-news__thumbnail:hover img {
   transform: scale(1.1);
 }
+
+.word-cloud {
+  
+}
+
+.word-cloud__word {
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.word-cloud__word:hover {
+  color: #E72076;
+}

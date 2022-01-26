@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import Area from '../components/area';
 import CategoryNews from "../components/category-news";
 import DetailPost from "../components/detail-post";
@@ -8,9 +8,11 @@ import ArticlesComponent from "../components/leading-mosaic";
 import NewsSlider from "../components/news-slider";
 import RecentArticles from "../components/recent-articles";
 import VideoArticles from "../components/video-articles";
+import TagCloud from "../components/tag-cloud";
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
+  const [show, setShow] = useState(false);
 
   return (
     <Layout seo={data.strapiHomepage.seo}>
@@ -33,6 +35,7 @@ const IndexPage = () => {
               {/* <div data-uk-sticky="offset: 100; media: @m"> */}
                 <RecentArticles />
                 <VideoArticles />
+                <TagCloud />
               {/* </div> */}
 
               {/* <img src="https://7edma.weebly.com/uploads/1/3/1/1/131192520/background-images/303929084.jpg" /> */}
@@ -68,7 +71,9 @@ const IndexPage = () => {
 
                   <div className="uk-width-1-1">
                     <Area title="Ostalo">
-                      {data.allStrapiArticle.edges.map((article, i) => (<DetailPost article={article} key={i} />))}
+                      {data.allStrapiArticle.edges.slice(0, 8).map((article, i) => (<DetailPost article={article} key={i} />))}
+                      {!show && (<a className="uk-link-muted" onClick={() => setShow(true)}><h1>Više...</h1></a>)}
+                      {show && (data.allStrapiArticle.edges.slice(8).map((article, i) => (<DetailPost article={article} key={i} />)))}
                     </Area>
                   </div>
 

@@ -9,8 +9,8 @@ const DetailPost = ({ article }) => {
       <div className="detail-post__thumbnail">
 
         <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
-          <GatsbyImage
-            image={article.node.image.localFile.childImageSharp.gatsbyImageData} alt="" />
+          {article.node.image.localFile && (<GatsbyImage
+            image={article.node.image.localFile.childImageSharp.gatsbyImageData} alt="" />)}
         </Link>
       </div>
       <div className="detail-post__content uk-flex-1">

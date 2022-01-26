@@ -91,12 +91,13 @@ const Article = ({ data }) => {
                       <Moment format="LL" locale="hr">{article.published_at}</Moment>
                     </div>
                   </div>
-                  <GatsbyImage
-                    className="uk-height-max-large"
-                    objectFit="contain"
-                    style={{ gridArea: "1/1" }}
-                    alt={`Picture for ${article.title} article`}
-                    image={article.image.localFile.childImageSharp.gatsbyImageData} />
+                  {article.image.localFile && (
+                    <GatsbyImage
+                      className="uk-height-max-large"
+                      objectFit="contain"
+                      style={{ gridArea: "1/1" }}
+                      alt={`Picture for ${article.title} article`}
+                      image={article.image.localFile.childImageSharp.gatsbyImageData} />)}
                 </div>
 
                 <Markdown source={article.content} escapeHtml={false} />
