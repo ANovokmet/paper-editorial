@@ -25,7 +25,7 @@ const RecentPost = ({ article, video }) => {
           </span>
           <span className="post-info__separator">-</span>
           <span className="post-info__date">
-            <Moment format="LL" locale="hr">{article.node.published_at}</Moment>
+            <Moment format="LL." locale="hr">{article.node.published_at}</Moment>
           </span>
         </div>
       </div>

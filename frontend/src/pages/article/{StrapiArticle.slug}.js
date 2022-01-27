@@ -88,7 +88,7 @@ const Article = ({ data }) => {
                       {article.author ? article.author.name : 'Autor'}
                     </div>
                     <div className="post-info__date">
-                      <Moment format="LL" locale="hr">{article.published_at}</Moment>
+                      <Moment format="LL." locale="hr">{article.published_at}</Moment>
                     </div>
                   </div>
                   {article.image.localFile && (
@@ -127,7 +127,7 @@ const Article = ({ data }) => {
                       {article.author ? article.author.name : 'Autor'}
                     </p>
                     <p className="uk-text-meta uk-margin-remove-top">
-                      <Moment format="LL" locale="hr">{article.published_at}</Moment>
+                      <Moment format="LL." locale="hr">{article.published_at}</Moment>
                     </p>
                   </div>
                 </div>

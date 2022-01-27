@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "./leading-card";
 
-const Articles = ({ articles }) => {
-  const leftArticle = articles[0];
+const Articles = ({ articles, topArticle }) => {
+  const leftArticle = { node: topArticle };
   const rightArticles = articles.slice(1, 5);
 
   return (

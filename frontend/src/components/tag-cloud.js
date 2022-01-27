@@ -17,24 +17,27 @@ const TagCloud = () => {
         }
       }
     }
-  }`)
+  }`);
 
+  const bannedWords = ['Featured', 'Hot', 'Top'];
   const words = {};
   let maxWeight = 1;
-  const maxFontSize = 30;
-  const minFontSize = 6;
+  const maxFontSize = 50;
+  const minFontSize = 10;
   for (const article of articles.edges) {
-    for(const tag of article.node.tags) {
-      if(!words[tag.slug]){
-        words[tag.slug] = {
-          name: tag.Name,
-          slug: tag.slug,
-          weight: 0
+    for (const tag of article.node.tags) {
+      if (!bannedWords.includes(tag.Name)) {
+        if (!words[tag.slug]) {
+          words[tag.slug] = {
+            name: tag.Name,
+            slug: tag.slug,
+            weight: 0
+          }
         }
-      }
-      words[tag.slug].weight++;
-      if(words[tag.slug].weight > maxWeight) {
-        maxWeight = words[tag.slug].weight;
+        words[tag.slug].weight++;
+        if (words[tag.slug].weight > maxWeight) {
+          maxWeight = words[tag.slug].weight;
+        }
       }
     }
   }
@@ -45,13 +48,13 @@ const TagCloud = () => {
       (maxFontSize - minFontSize) * (word.weight / maxWeight) + minFontSize
     );
   }
-  
+
   return (
     <Area title="Oblak oznaka">
       <div className="word-cloud">
         {Object.values(words).map((word, i) => (
           <Link to={`tag/${word.slug}`} key={i} className="uk-link-muted">
-            <div className="word-cloud__word" style={{fontSize: word.fontSize}}>
+            <div className="word-cloud__word" style={{ fontSize: word.fontSize }}>
               {word.name}
             </div>
           </Link>))}

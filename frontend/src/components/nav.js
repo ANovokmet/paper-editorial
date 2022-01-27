@@ -88,9 +88,6 @@ const Nav = () => {
               <div>
                 <a href={data.strapiGlobal.instagramUrl} target="_blank" data-uk-icon="icon: instagram"></a>
               </div>
-              <div>
-                <a href={data.strapiGlobal.youtubeUrl} target="_blank" data-uk-icon="icon: youtube"></a>
-              </div>
             </div>
           </nav>
 

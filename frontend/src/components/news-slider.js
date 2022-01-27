@@ -10,7 +10,7 @@ const HotNews = ({ article }) => {
       <div className="hot-news__thumbnail">
         <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
           <GatsbyImage
-          objectFit="center"
+          className="uk-width-1-1"
             image={article.node.image.localFile.childImageSharp.gatsbyImageData} alt="" />
         </Link>
       </div>
@@ -26,7 +26,7 @@ const HotNews = ({ article }) => {
           </span>
           <span className="post-info__separator">-</span>
           <span className="post-info__date">
-            <Moment format="LL" locale="hr">{article.node.created_at}</Moment>
+            <Moment format="LL." locale="hr">{article.node.created_at}</Moment>
           </span>
         </div>
       </div>
@@ -39,7 +39,7 @@ const NewsSlider = ({ articles }) => {
     <div style={{ overflow: 'hidden' }}>
       <div className="uk-position-relative uk-visible-toggle" tabIndex="-1" data-uk-slider>
 
-        <ul className="uk-slider-items uk-child-width-1-2 uk-grid uk-grid-small">
+        <ul className="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid">
           {articles.map((article, i) => (
             <li key={i}>
               {<HotNews article={article} />}

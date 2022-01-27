@@ -23,15 +23,14 @@ const IndexPage = () => {
             <h1>{data.strapiHomepage.hero.title}</h1>
             <h2>{data.strapiHomepage.hero.subtitle}</h2>
           </div> */}
-          <ArticlesComponent articles={data.featuredArticles.edges} />
+          <ArticlesComponent articles={data.featuredArticles.edges} topArticle={data.topFeaturedArticle} />
         </div>
-
       </div>
 
       <div className="uk-section">
         <div className="uk-container">
           <div data-uk-grid>
-            <div className="uk-width-1-1 uk-width-2-5@s">
+            <div className="uk-width-1-1 uk-width-1-3@s">
               {/* <div data-uk-sticky="offset: 100; media: @m"> */}
                 <RecentArticles />
                 <VideoArticles />
@@ -40,7 +39,7 @@ const IndexPage = () => {
 
               {/* <img src="https://7edma.weebly.com/uploads/1/3/1/1/131192520/background-images/303929084.jpg" /> */}
             </div>
-            <div className="uk-width-1-1 uk-width-3-5@s">
+            <div className="uk-width-1-1 uk-width-2-3@s">
 
               <div className="uk-width-1" style={{ marginBottom: 30 }}>
 
@@ -85,11 +84,6 @@ const IndexPage = () => {
 
         </div>
       </div>
-      <footer className="uk-section uk-section-small uk-section-muted">
-        <div className="uk-container">
-          <p className="uk-text-small uk-text-center">Built by ANovokmet</p>
-        </div>
-      </footer>
     </Layout>
   );
 };
@@ -183,9 +177,29 @@ query {
       }
     }
   }
+
+  topFeaturedArticle: strapiArticle(tags: {elemMatch: {slug: {eq: "featured-top"}}}) {
+    slug
+    title
+    created_at(formatString: "ll")
+    category {
+      name
+      slug
+    }
+    author {
+      name
+    }
+    image {
+      localFile {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  }
   featuredArticles: allStrapiArticle(
     sort: {fields: created_at, order: DESC}
-    limit: 6
+    limit: 5
     filter: {tags: {elemMatch: {slug: {eq: "featured"}}}}
   ) {
     edges {
