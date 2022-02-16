@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import ArticlesComponent from "../../components/articles";
 import Layout from "../../components/layout";
@@ -38,6 +38,9 @@ export const query = graphql`
               }
             }
           }
+          tags {
+            slug
+          }
         }
       }
     }
@@ -48,12 +51,16 @@ export const query = graphql`
 `;
 
 const Category = ({ data }) => {
-  const articles = data.articles.edges;
+  const articles = data.articles.edges.filter(article => !article.node.tags.some(tag => tag.slug === 'arhiva'));
+  const archived = data.articles.edges.filter(article => article.node.tags.some(tag => tag.slug === 'arhiva'));
+
   const category = data.category.name;
   const seo = {
     metaTitle: category,
     metaDescription: `All ${category} articles`,
   };
+
+  const [show, setShow] = useState(false);
 
   return (
     <Layout seo={seo}>
@@ -65,6 +72,12 @@ const Category = ({ data }) => {
 
               <div className="uk-width-1-1 uk-width-2-3@m">
                 {articles.map((article, i) => (
+                  <div key={i} style={{marginBottom: 20}}>
+                    <DetailPost article={article} key={i} />
+                  </div>
+                ))}
+                {!show && archived.length > 0 && (<a className="uk-link-muted" onClick={() => setShow(true)}><h1>Arhiva</h1></a>)}
+                {show && archived.map((article, i) => (
                   <div key={i} style={{marginBottom: 20}}>
                     <DetailPost article={article} key={i} />
                   </div>

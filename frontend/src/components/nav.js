@@ -14,10 +14,6 @@ const Nav = () => {
       href: '/category/vise-od-skole'
     },
     {
-      name: 'Nova lica sedme',
-      href: '/category/nova-lica-sedme'
-    },
-    {
       name: 'Obilježavamo',
       href: '/category/obiljezavamo'
     },

@@ -19,7 +19,7 @@ const TagCloud = () => {
     }
   }`);
 
-  const bannedWords = ['Featured', 'Hot', 'Top'];
+  const bannedWords = ['Featured', 'Hot', 'Top', 'Arhiva'];
   const words = {};
   let maxWeight = 1;
   const maxFontSize = 50;
