@@ -4,12 +4,12 @@ import Card from "./leading-card";
 const Articles = ({ articles, topArticle }) => {
   const leftArticle = { node: topArticle };
   const rightArticles = articles.slice(1, 5);
-
+  
   return (
     <div className="uk-grid-collapse uk-grid card-grid uk-height-large@s" data-uk-grid="true">
 
       <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-1@s uk-height-large card--main">
-        <Card article={leftArticle} />
+        { leftArticle.node && (<Card article={leftArticle} />)}
       </div>
 
       <div className="uk-width-1-1 uk-width-1-2@s uk-height-1-1@s uk-grid-match uk-grid-collapse uk-grid uk-height-large" data-uk-grid="true">

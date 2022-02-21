@@ -7,11 +7,12 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 const RecentArticles = () => {
   const { articles } = useStaticQuery(graphql`
   query {
-    articles: allStrapiArticle(sort: {fields: published_at, order: DESC}, limit: 6) {
+    articles: allStrapiArticle(sort: {fields: fields___sortDate, order: DESC}, limit: 6) {
       edges {
         node {
           slug
           title
+          article_published_at
           published_at
           category {
             name

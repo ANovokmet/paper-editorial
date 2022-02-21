@@ -10,13 +10,14 @@ export const query = graphql`
   query Tag($slug: String!) {
     articles: allStrapiArticle(
       filter: {tags: {elemMatch: {slug: {eq: $slug}}}}
-      sort: {fields: published_at, order: DESC}
+      sort: {fields: fields___sortDate, order: DESC}
     ) {
       edges {
         node {
           slug
           title
           description
+          article_published_at
           published_at
           category {
             name

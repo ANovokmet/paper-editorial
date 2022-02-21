@@ -105,13 +105,14 @@ query {
       }
     }
   }
-  allStrapiArticle(sort: { fields: published_at, order: DESC }) {
+  allStrapiArticle(sort: { fields: fields___sortDate, order: DESC }) {
     edges {
       node {
         strapiId
         slug
         title
         description
+        article_published_at
         published_at
         category {
           name
@@ -144,6 +145,8 @@ query {
         title
         description
         created_at(formatString: "ll")
+        article_published_at
+        published_at
         category {
           name
         }
@@ -167,7 +170,7 @@ query {
     name
   }
   topArticles: allStrapiArticle(
-    sort: {fields: created_at, order: DESC}
+    sort: {fields: fields___sortDate, order: DESC}
     limit: 3
     filter: {tags: {elemMatch: {slug: {eq: "top"}}}}
   ) {
@@ -182,6 +185,8 @@ query {
     slug
     title
     created_at(formatString: "ll")
+    article_published_at
+    published_at
     category {
       name
       slug
@@ -198,7 +203,7 @@ query {
     }
   }
   featuredArticles: allStrapiArticle(
-    sort: {fields: created_at, order: DESC}
+    sort: {fields: fields___sortDate, order: DESC}
     limit: 5
     filter: {tags: {elemMatch: {slug: {eq: "featured"}}}}
   ) {
@@ -207,6 +212,8 @@ query {
         slug
         title
         created_at(formatString: "ll")
+        article_published_at
+        published_at
         category {
           name
           slug
@@ -225,7 +232,7 @@ query {
     }
   }
   ponosnaSkolaArticles: allStrapiArticle(
-    sort: {fields: created_at, order: DESC}
+    sort: {fields: fields___sortDate, order: DESC}
     limit: 6
     filter: {category: {slug: {eq: "ponosna-skola"}}}
   ) {
@@ -236,7 +243,7 @@ query {
     }
   }
   viseOdSkoleArticles: allStrapiArticle(
-    sort: {fields: created_at, order: DESC}
+    sort: {fields: fields___sortDate, order: DESC}
     limit: 6
     filter: {category: {slug: {eq: "vise-od-skole"}}}
   ) {
@@ -253,6 +260,7 @@ fragment comparisonFields on StrapiArticle {
   slug
   title
   created_at(formatString: "ll")
+  article_published_at
   published_at
   category {
     name

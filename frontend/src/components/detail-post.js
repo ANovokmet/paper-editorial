@@ -25,7 +25,7 @@ const DetailPost = ({ article }) => {
           </span>
           <span className="detail-info__separator">-</span>
           <span className="detail-info__date">
-            <Moment format="LL." locale="hr">{article.node.published_at}</Moment>
+            <Moment format="LL." locale="hr">{article.node.article_published_at || article.node.published_at}</Moment>
           </span>
         </div>
         <div className="detail-post__content">

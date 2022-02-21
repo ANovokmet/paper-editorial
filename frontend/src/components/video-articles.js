@@ -8,7 +8,7 @@ const RecentArticles = () => {
   const { articles } = useStaticQuery(graphql`
   query {
     articles: allStrapiArticle(
-      sort: {fields: published_at, order: DESC}
+      sort: {fields: fields___sortDate, order: DESC}
       limit: 6
       filter: {category: {slug: {eq: "gledaj"}}}
     ) {
@@ -16,6 +16,7 @@ const RecentArticles = () => {
         node {
           slug
           title
+          article_published_at
           published_at
           category {
             name

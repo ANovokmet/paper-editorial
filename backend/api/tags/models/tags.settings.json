@@ -20,8 +20,8 @@
       "targetField": "Name"
     },
     "articles": {
-      "collection": "article",
       "via": "tags",
+      "collection": "article",
       "dominant": true
     }
   }

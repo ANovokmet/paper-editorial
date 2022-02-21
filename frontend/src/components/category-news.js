@@ -31,7 +31,7 @@ const LeadingPost = ({ article }) => {
           </div>
           <span className="post-info__separator">-</span>
           <div className="post-info__date">
-            <Moment format="LL." locale="hr">{article.node.published_at}</Moment>
+            <Moment format="LL." locale="hr">{article.node.article_published_at || article.node.published_at}</Moment>
           </div>
         </div>
       </div>
