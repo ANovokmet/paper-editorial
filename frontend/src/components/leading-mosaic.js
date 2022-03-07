@@ -3,7 +3,7 @@ import Card from "./leading-card";
 
 const Articles = ({ articles, topArticle }) => {
   const leftArticle = { node: topArticle };
-  const rightArticles = articles.slice(1, 5);
+  const rightArticles = articles.slice(0, 4);
   
   return (
     <div className="uk-grid-collapse uk-grid card-grid uk-height-large@s" data-uk-grid="true">
