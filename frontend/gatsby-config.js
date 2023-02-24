@@ -1,5 +1,6 @@
 require("dotenv").config({
-  path: `.env`
+  path: `.env`,
+  //path: `.env.production`,
 });
 
 module.exports = {
@@ -23,7 +24,12 @@ module.exports = {
     },
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        failOnError: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
