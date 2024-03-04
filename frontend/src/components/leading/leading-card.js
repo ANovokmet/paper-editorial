@@ -35,7 +35,7 @@ export function BrowserPost({ article, className }) {
         </div>
         <div className="browser-content">
           <img className="pointer" src={Pointer} />
-          <Link to={`/category/${article.node.category.slug}`} className="uk-link-reset">
+          <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
             <GatsbyImage
               className="card--big"
               image={article.node.image.localFile.childImageSharp.gatsbyImageData}

@@ -216,6 +216,10 @@ img:hover {
   margin: 0
 }
 
+.leading-post__title {
+  color: black;
+}
+
 .leading-post .leading-post__title {
   transition: color 0.1s ease;
 }
@@ -389,10 +393,34 @@ img:hover {
   overflow: auto;
 }
 
-.tags-nav a {
+.tags-area {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+
+  overflow: auto;
+}
+
+.tags-area a, .tags-nav a {
   white-space: pre;
   background: white;
   border: 1px solid var(--border-color);
+}
+
+.tags-area-container {
+  flex: 1 0 0px;
+  flex-basis: 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.tags-area-container .area__content {
+  flex: 1 0 0px;
+  flex-basis: 0px;
+  overflow: auto;
 }
 
 .pointer {

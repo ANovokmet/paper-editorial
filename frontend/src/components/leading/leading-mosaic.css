@@ -1,10 +1,10 @@
 .leading-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: 1fr;
-    grid-template-areas:
+    grid-template-rows: repeat(3, minmax(0, 240px));
+    /* grid-template-areas:
         "l l m"
-        "s1 s2 s3";
+        "s1 s2 s3"; */
     row-gap: 1rem;
     column-gap: 1rem;
 }
@@ -12,30 +12,35 @@
 .l {
     grid-area: l;
     position: relative;
+
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    height: 100%;
 }
 
 .m {
-    grid-area: m;
+    /* grid-area: m; */
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
 .s1 {
-    grid-area: s1;
+    /* grid-area: s1; */
 }
 
 .s2 {
-    grid-area: s2;
+    /* grid-area: s2; */
 }
 
 .s3 {
-    grid-area: s3;
+    /* grid-area: s3; */
 }
 
-.card--main .leading-post__title {
-  font-size: 2rem;
-  font-size: clamp(1.0rem, 0.5rem + 5vw, 3rem);
+.l .leading-post__title {
+    font-size: 2rem;
+    font-size: clamp(1.0rem, 0.5rem + 5vw, 3rem);
+    line-height: clamp(1.0rem, 0.5rem + 5vw, 3rem);
 }
 
 .item-w--big {
@@ -45,28 +50,48 @@
 
 @media screen and (max-width: 960px) {
     .leading-grid {
-        grid-template-areas:
-            "l l l"
-            "m m m"
-            "s1 s2 s3";
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 240px));
+    }
+
+    .l {
+        grid-column: span 6;
     }
 
     .m {
-        flex-direction: row;
+        grid-column: span 3;
+    }
+
+    .s {
+        grid-column: span 2;
     }
 }
 
 @media screen and (max-width: 767px) {
     .leading-grid {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "l"
-            "m"
-            "s1"
-            "s2"
-            "s3";
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 240px));
     }
 
+    .l {
+        grid-column: span 6;
+    }
+
+    .m {
+        grid-column: span 6;
+    }
+
+    .s {
+        grid-column: span 6;
+    }
+
+    .item-w--small .item__image-w {
+        max-width: 100% !important;
+        max-height: 200px !important;
+    }
+
+
+    /* 
     .browser-title, .content-w {
         position: relative !important;
         width: 100% !important;
@@ -74,8 +99,8 @@
     
     .item-w--big .image-w {
         flex: 1 1 140px !important;
-    }
-    
+    } */
+
 }
 
 .item {
@@ -191,9 +216,14 @@
 }
 
 .item-w--small .item__image-w {
-    width: 140px;
-    height: 140px;
+    /* width: 140px;
+    height: 140px; */
+
+    height: 100%;
+    max-width: 30vw;
+    max-height: 400px;
 }
+
 .item-w--small .content-w {
     right: 0;
 }

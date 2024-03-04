@@ -14,7 +14,7 @@ function Primary({ article, className }) {
       <div className="image-w">
         <img className="pointer" src={Pointer} />
         <div className="item__image-w">
-          <Link to={`/category/${article.node.category.slug}`} className="uk-link-reset">
+          <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
             <GatsbyImage
               className="card--big"
               image={article.node.image.localFile.childImageSharp.gatsbyImageData}
@@ -61,13 +61,11 @@ function Articles({ articles, topArticle }) {
 
   return (
     <div className="leading-grid uk-height-large@s">
-      {leftArticle.node && <BrowserPost article={leftArticle} className="l card--main" />}
-      <div className="m">
-        <Primary article={rightArticles[0]} className="item-w--big" />
-        <Primary article={rightArticles[1]} className="item-w--big" />
-      </div>
+      {leftArticle.node && <BrowserPost article={leftArticle} className="l" />}
+      <Primary article={rightArticles[0]} className="item-w--big m" />
+      <Primary article={rightArticles[1]} className="item-w--big m" />
       {rightArticles.slice(2, 6).map((article, i) => (
-        <Primary article={article} className={`s${i + 1} item-w--small`} key={i} />
+        <Primary article={article} className={`s${i + 1} item-w--small s`} key={i} />
       ))}
     </div>
   );

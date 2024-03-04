@@ -8,7 +8,7 @@ import ArticlesComponent from '../components/leading/leading-mosaic';
 import NewsSlider from '../components/news-slider';
 import RecentArticles from '../components/recent-articles';
 import VideoArticles from '../components/video-articles';
-import { TagNav } from '../components/tag-cloud';
+import { TagNav, TagArea } from '../components/tag-cloud';
 import Marquee from '../components/marquee/marquee';
 
 const IndexPage = () => {
@@ -25,10 +25,6 @@ const IndexPage = () => {
         </div>
       </div>
 
-      <div className="uk-container">
-        <TagNav />
-      </div>
-
       <div className="uk-section section" style={{ borderBottom: '1px solid black' }}>
         <div className="uk-container">
           <div data-uk-grid>
@@ -38,8 +34,8 @@ const IndexPage = () => {
             <div className="uk-width-1-1 uk-width-1-3@s uk-width-1-3@m ">
               <CategoryNews category={data.viseOdSkoleCategory} articles={data.viseOdSkoleArticles.edges} />
             </div>
-            <div className="uk-width-1-1 uk-width-expand@s">
-              <RecentArticles />
+            <div className="uk-width-1-1 uk-width-expand@s flex-col">
+              <TagArea />
             </div>
           </div>
         </div>

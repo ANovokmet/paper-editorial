@@ -123,4 +123,64 @@ export function TagNav() {
   );
 }
 
+export function TagArea() {
+  const { articles } = useStaticQuery(graphql`
+    query {
+      articles: allStrapiArticle {
+        edges {
+          node {
+            tags {
+              Name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const bannedWords = ['Featured', 'Hot', 'Top', 'Arhiva'];
+  const words = {};
+  let maxWeight = 1;
+  const maxFontSize = 50;
+  const minFontSize = 10;
+  for (const article of articles.edges) {
+    for (const tag of article.node.tags) {
+      if (!bannedWords.includes(tag.Name)) {
+        if (!words[tag.slug]) {
+          words[tag.slug] = {
+            name: tag.Name,
+            slug: tag.slug,
+            weight: 0,
+          };
+        }
+        words[tag.slug].weight++;
+        if (words[tag.slug].weight > maxWeight) {
+          maxWeight = words[tag.slug].weight;
+        }
+      }
+    }
+  }
+
+  for (const slug in words) {
+    const word = words[slug];
+    word.fontSize = Math.round((maxFontSize - minFontSize) * (word.weight / maxWeight) + minFontSize);
+  }
+
+  const sorted = Object.values(words);
+  sorted.sort((a, b) => b.weight - a.weight);
+
+  return (
+    <Area title="Oznake" className="tags-area-container">
+      <div className="tags-area">
+        {sorted.map((word, i) => (
+          <Link className="button--rounded" to={`tag/${word.slug}`} key={i}>
+            {word.name} ({word.weight})
+          </Link>
+        ))}
+      </div>
+    </Area>
+  );
+}
+
 export default TagCloud;
