@@ -57,7 +57,7 @@ function Primary({ article, className }) {
 
 function Articles({ articles, topArticle }) {
   const leftArticle = { node: topArticle };
-  const rightArticles = [...articles.slice(0, 5), articles[1]];
+  const rightArticles = [...articles.slice(0, 6)];
 
   return (
     <div className="leading-grid uk-height-large@s">
@@ -66,7 +66,7 @@ function Articles({ articles, topArticle }) {
         <Primary article={rightArticles[0]} className="item-w--big" />
         <Primary article={rightArticles[1]} className="item-w--big" />
       </div>
-      {rightArticles.slice(2, 5).map((article, i) => (
+      {rightArticles.slice(2, 6).map((article, i) => (
         <Primary article={article} className={`s${i + 1}`} key={i} />
       ))}
     </div>

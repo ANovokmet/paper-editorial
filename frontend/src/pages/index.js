@@ -190,7 +190,7 @@ const query = graphql`
     }
     featuredArticles: allStrapiArticle(
       sort: { fields: fields___sortDate, order: DESC }
-      limit: 5
+      limit: 6
       filter: { tags: { elemMatch: { slug: { eq: "featured" } } } }
     ) {
       edges {
