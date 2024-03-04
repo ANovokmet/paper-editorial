@@ -1,0 +1,39 @@
+.marquee {
+    background-color: #000;
+    color: #fff;
+
+    padding: .5em 0;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    min-width: 100%;
+    animation: scroll 20s linear infinite;
+
+    font-family: monospace;
+    font-weight: 700;
+}
+
+.marquee:hover .marquee__content {
+    animation-play-state: paused;
+}
+
+.marquee__highlight {
+    color: rgb(255, 234, 128);
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100%));
+    }
+}

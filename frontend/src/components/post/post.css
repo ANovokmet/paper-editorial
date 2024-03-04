@@ -1,0 +1,34 @@
+.post {
+    margin-bottom: 15px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    /* padding-bottom: 15px; */
+    border-color: #dddddd;
+
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.14s ease-out;
+}
+
+.post__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    overflow: auto;
+}
+
+.post:hover {
+    box-shadow: .25rem .25rem 0rem var(--shadow-color);
+}
+
+.post__thumbnail {
+  max-width: 100px;
+  /* because of icon */
+  position:  relative;
+
+  flex: 1 0 auto;
+  border-right: 1px solid var(--border-color);
+}

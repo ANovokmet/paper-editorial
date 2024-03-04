@@ -1,42 +1,45 @@
-import Area from './area';
-import RecentPost from "./recent-post";
-import React from "react";
+import React from 'react';
+import Area from './area/area';
+import RecentPost from './post/post';
 
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from 'gatsby';
 
 const RecentArticles = () => {
   const { articles } = useStaticQuery(graphql`
-  query {
-    articles: allStrapiArticle(sort: {fields: fields___sortDate, order: DESC}, limit: 6) {
-      edges {
-        node {
-          slug
-          title
-          article_published_at
-          published_at
-          category {
-            name
-          }
-          author {
-            name
-          }
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 150, height: 110)
+    query {
+      articles: allStrapiArticle(sort: { fields: fields___sortDate, order: DESC }, limit: 6) {
+        edges {
+          node {
+            slug
+            title
+            article_published_at
+            published_at
+            category {
+              name
+            }
+            author {
+              name
+            }
+            image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 300, height: 220)
+                }
               }
             }
           }
         }
       }
     }
-  }`)
+  `);
 
   return (
-    <Area title="Najnovije">
-      {articles.edges.map((article, i) => (<RecentPost article={article} key={i} />))}
+    <Area title="Najnovije" className="area--grow">
+      {articles.edges.map((article, i) => (
+        <RecentPost article={article} key={i} />
+      ))}
     </Area>
-  )
-}
+  );
+};
 
 export default RecentArticles;

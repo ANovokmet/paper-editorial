@@ -1,0 +1,46 @@
+.social {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+}
+
+.social>* {
+    margin-left:;
+}
+
+.uk-offcanvas.uk-open {
+    display: block;
+}
+
+.sidenav__items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidenav__header {
+    margin-bottom: 1rem;
+}
+
+.sidenav {
+    background: var(--beige) !important;
+    box-shadow: .25rem .25rem 0rem var(--shadow-color);
+    border-right: var(--border-1);
+}
+
+.button__menu {
+    margin-left: auto;
+}
+
+.navbar--primary  {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.social {
+    flex-wrap: nowrap !important;
+}
+
+.uk-icon {
+    min-width: 20px;
+}

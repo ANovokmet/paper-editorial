@@ -1,5 +1,7 @@
 public
 .env.production
+node_modules
+.cache
 
 .yarn/*
 !.yarn/cache

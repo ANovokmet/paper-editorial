@@ -1,0 +1,27 @@
+.tag {
+    margin-right: 5px;
+}
+
+.tags {
+  display: flex;
+  align-items: baseline;
+}
+
+.tags__title {
+  text-transform: uppercase;
+  margin-right: 5px;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  background: black;
+}
+
+.blog__footer .tag, .tags__title {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-right: 5px;
+    border: var(--border-1);
+    font-size: 14px;
+}

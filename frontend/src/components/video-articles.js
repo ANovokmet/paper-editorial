@@ -1,5 +1,5 @@
-import Area from './area';
-import RecentPost from "./recent-post";
+import Area from './area/area';
+import RecentPost from "./post/post";
 import React from "react";
 
 import { Link, useStaticQuery, graphql } from "gatsby";

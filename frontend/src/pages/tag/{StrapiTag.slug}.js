@@ -1,9 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import ArticlesComponent from "../../components/articles";
 import Layout from "../../components/layout";
-import Area from "../../components/area";
-import DetailPost from "../../components/detail-post";
+import DetailPost from "../../components/detail-post/detail-post";
 import RecentArticles from "../../components/recent-articles";
 
 export const query = graphql`
