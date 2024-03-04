@@ -77,8 +77,10 @@ const Nav = () => {
               </ul>
               <Link to="/" className="uk-link-text navbar-brand">
                 <img className="navbar__image" src={logo} style={{ height: '60px' }} />
-                <div className="navbar__title">{data.strapiGlobal.siteName}</div>
-                <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
+                <div className="flex-col">
+                  <div className="navbar__title">{data.strapiGlobal.siteName}</div>
+                  <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
+                </div>
               </Link>
             </div>
             <div className="uk-navbar-center"></div>

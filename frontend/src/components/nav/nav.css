@@ -1,3 +1,68 @@
+.navbars {
+    border-bottom: 1px solid rgb(0 0 0);
+}
+
+.navbar--primary {
+    background: var(--beige) !important;
+    padding-top: 0.5rem;
+}
+
+.navbar--primary .uk-navbar-left {
+    margin-right: 0.5rem; 
+}
+
+.navbar.navbar--secondary {
+    display: none;
+    background: var(--beige) !important;
+}
+
+
+.navbar-brand {
+    display: flex;
+    /* align-items: baseline; */
+    flex-direction: row;
+    gap: 0.25rem;
+    position: relative;
+}
+
+.navbar__image {
+    /* position: absolute; */
+    z-index: 1;
+    max-height: 76px;
+    height: 100% !important;
+    /* left: -25px; */
+    /* top: 14px; */
+    /* opacity: 0.5; */
+    /* display: none; */
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navbar__title {  
+    line-height: 2.5rem;
+    font-size: 44px;
+    font-weight: 700;
+    color: black;
+}
+
+.navbar__subtitle {
+    color: rgb(49, 168, 255);
+    font-size: 24px;
+    font-weight: 700;
+    /* margin: -40px 0px 11px 67px; */
+}
+
+@media (max-width: 768px) {
+    .navbar__subtitle {
+        font-size: 12px;
+    }
+}
+
+
 .social {
     display: flex;
     flex-wrap: nowrap;
@@ -5,7 +70,7 @@
 }
 
 .social>* {
-    margin-left:;
+    margin-left: ;
 }
 
 .uk-offcanvas.uk-open {
@@ -32,7 +97,7 @@
     margin-left: auto;
 }
 
-.navbar--primary  {
+.navbar--primary {
     display: flex;
     flex-wrap: nowrap;
 }
@@ -43,4 +108,11 @@
 
 .uk-icon {
     min-width: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .navbar--primary .button--plain {
+        padding: 0.5rem;
+    }
 }

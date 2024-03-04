@@ -5,7 +5,10 @@
 }
 
 .blog-hero h1 {
-    font-size: 3rem;
+    /* font-size: 3rem; */
+    font-size: 2rem;
+    font-size: clamp(1.0rem, 0.5rem + 5vw, 3rem);
+
     font-weight: 700;
 }
 

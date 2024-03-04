@@ -24,23 +24,25 @@ export function Browser({ children }) {
 
 export function BrowserPost({ article, className }) {
   return (
-    <div className={`browser ${className || ''}`}>
-      <div className="browser-bar">
-        <div className="browser-bar-dot"></div>
-        <div className="browser-bar-dot"></div>
-        <div className="browser-bar-dot"></div>
+    <div className={`browser-container ${className || ''}`}>
+      <div className={`browser ${className || ''}`}>
+        <div className="browser-bar">
+          <div className="browser-bar-dot"></div>
+          <div className="browser-bar-dot"></div>
+          <div className="browser-bar-dot"></div>
 
-        <div className="browser-bar-close"></div>
-      </div>
-      <div className="browser-content">
-        <img className="pointer" src={Pointer} />
-        <Link to={`/category/${article.node.category.slug}`} className="uk-link-reset">
-          <GatsbyImage
-            className="card--big"
-            image={article.node.image.localFile.childImageSharp.gatsbyImageData}
-            alt={`Image`}
-          />
-        </Link>
+          <div className="browser-bar-close"></div>
+        </div>
+        <div className="browser-content">
+          <img className="pointer" src={Pointer} />
+          <Link to={`/category/${article.node.category.slug}`} className="uk-link-reset">
+            <GatsbyImage
+              className="card--big"
+              image={article.node.image.localFile.childImageSharp.gatsbyImageData}
+              alt={`Image`}
+            />
+          </Link>
+        </div>
       </div>
       <div className="browser-title">
         <Link to={`/category/${article.node.category.slug}`} className="uk-link-reset">

@@ -5,20 +5,21 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 
 const TagCloud = () => {
-  const { articles } = useStaticQuery(graphql`
-    query {
-      articles: allStrapiArticle {
-        edges {
-          node {
-            tags {
-              Name
-              slug
-            }
-          }
-        }
-      }
-    }
-  `);
+  const { articles } = {};
+  //  useStaticQuery(graphql`
+  //   query {
+  //     articles: allStrapiArticle {
+  //       edges {
+  //         node {
+  //           tags {
+  //             Name
+  //             slug
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   const bannedWords = ['Featured', 'Hot', 'Top', 'Arhiva'];
   const words = {};

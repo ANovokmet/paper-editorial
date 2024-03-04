@@ -67,7 +67,7 @@ function Articles({ articles, topArticle }) {
         <Primary article={rightArticles[1]} className="item-w--big" />
       </div>
       {rightArticles.slice(2, 6).map((article, i) => (
-        <Primary article={article} className={`s${i + 1}`} key={i} />
+        <Primary article={article} className={`s${i + 1} item-w--small`} key={i} />
       ))}
     </div>
   );

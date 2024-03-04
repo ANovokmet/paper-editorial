@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '../components/layout';
 import RecentArticles from '../components/recent-articles';
 import Markdown from 'react-markdown';
