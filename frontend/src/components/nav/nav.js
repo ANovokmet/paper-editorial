@@ -19,8 +19,8 @@ const Nav = () => {
       href: '/category/vise-od-skole',
     },
     {
-      name: 'Obilježavamo',
-      href: '/category/obiljezavamo',
+      name: 'Događajnica',
+      href: '/category/dogadajnica',
     },
     {
       name: 'Putujemo i učimo',
