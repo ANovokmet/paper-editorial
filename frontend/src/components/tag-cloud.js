@@ -167,8 +167,10 @@ export function TagArea() {
     word.fontSize = Math.round((maxFontSize - minFontSize) * (word.weight / maxWeight) + minFontSize);
   }
 
-  const sorted = Object.values(words);
+  let sorted = Object.values(words);
   sorted.sort((a, b) => b.weight - a.weight);
+  sorted = sorted.filter((t) => t.weight > 1);
+  sorted = sorted.slice(0, 20);
 
   return (
     <Area title="Oznake" className="tags-area-container">

@@ -12,7 +12,12 @@ const RecentPost = ({ article, video }) => {
         <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
           {video ? (
             <div className="play-icon">
-              <span data-uk-icon="icon: play-circle"></span>
+              <span class="data-uk-icon uk-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                  <polygon fill="none" stroke="#000" stroke-width="1.1" points="8.5 7 13.5 10 8.5 13"></polygon>
+                  <circle fill="none" stroke="#000" stroke-width="1.1" cx="10" cy="10" r="9"></circle>
+                </svg>
+              </span>
             </div>
           ) : (
             ''

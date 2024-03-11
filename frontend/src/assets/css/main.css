@@ -189,11 +189,11 @@ img:hover {
   margin: 0 5px;
 }
 
-.post-info [data-uk-icon] {
+.post-info .data-uk-icon {
   margin-right: 2px;
 }
 
-.post-info [data-uk-icon]>svg {
+.post-info .data-uk-icon>svg {
   height: 14px;
 }
 

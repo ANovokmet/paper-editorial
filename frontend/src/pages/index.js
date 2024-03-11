@@ -6,9 +6,8 @@ import DetailPost from '../components/detail-post/detail-post';
 import Layout from '../components/layout';
 import ArticlesComponent from '../components/leading/leading-mosaic';
 import NewsSlider from '../components/news-slider';
-import RecentArticles from '../components/recent-articles';
 import VideoArticles from '../components/video-articles';
-import { TagNav, TagArea } from '../components/tag-cloud';
+import { TagArea } from '../components/tag-cloud';
 import Marquee from '../components/marquee/marquee';
 
 const IndexPage = () => {
@@ -216,7 +215,10 @@ const query = graphql`
     ponosnaSkolaArticles: allStrapiArticle(
       sort: { fields: fields___sortDate, order: DESC }
       limit: 4
-      filter: { category: { slug: { eq: "ponosna-skola" } } }
+      filter: {
+        tags: { elemMatch: { slug: { nin: ["featured", "featured-top"] } } }
+        category: { slug: { eq: "ponosna-skola" } }
+      }
     ) {
       edges {
         node {
@@ -227,7 +229,10 @@ const query = graphql`
     viseOdSkoleArticles: allStrapiArticle(
       sort: { fields: fields___sortDate, order: DESC }
       limit: 4
-      filter: { category: { slug: { eq: "vise-od-skole" } } }
+      filter: {
+        tags: { elemMatch: { slug: { nin: ["featured", "featured-top"] } } }
+        category: { slug: { eq: "vise-od-skole" } }
+      }
     ) {
       edges {
         node {
@@ -253,7 +258,7 @@ const query = graphql`
     image {
       localFile {
         childImageSharp {
-          gatsbyImageData(width: 600, height: 440)
+          gatsbyImageData(width: 600, height: 440, transformOptions: { cropFocus: ENTROPY })
         }
       }
     }
