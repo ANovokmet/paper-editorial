@@ -409,14 +409,6 @@ img:hover {
   border: 1px solid var(--border-color);
 }
 
-.tags-area-container {
-  flex: 1 0 0px;
-  flex-basis: 0px;
-  display: flex;
-  flex-direction: column;
-  min-height: 300px;
-}
-
 .tags-area-container .area__content {
   flex: 1 0 0px;
   flex-basis: 0px;
@@ -512,4 +504,10 @@ a.uk-link-text:hover {
   padding: 1rem;
   border: var(--border-1);
   background-color: white;
+}
+
+.comic__image {
+  margin-top: 1rem;
+  display: block;
+  height: auto;
 }

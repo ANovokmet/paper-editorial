@@ -10,6 +10,8 @@ import VideoArticles from '../components/video-articles';
 import { TagArea } from '../components/tag-cloud';
 import Marquee from '../components/marquee/marquee';
 
+import comic from '../assets/strip.png';
+
 const IndexPage = () => {
   const data = useStaticQuery(query);
   const [show, setShow] = useState(false);
@@ -34,7 +36,7 @@ const IndexPage = () => {
               <CategoryNews category={data.viseOdSkoleCategory} articles={data.viseOdSkoleArticles.edges} />
             </div>
             <div className="uk-width-1-1 uk-width-expand@s flex-col">
-              <TagArea />
+              <CategoryNews category={data.dogadajnicaCategory} articles={data.dogadajnicaArticles.edges} />
             </div>
           </div>
         </div>
@@ -61,6 +63,8 @@ const IndexPage = () => {
             </div>
             <div className="uk-width-1-1 uk-width-1-3@s">
               <VideoArticles />
+              <TagArea />
+              <img className="comic__image" src={comic} style={{ height: '100%' }} />
             </div>
           </div>
         </div>
@@ -150,6 +154,9 @@ const query = graphql`
     viseOdSkoleCategory: strapiCategory(slug: { eq: "vise-od-skole" }) {
       name
     }
+    dogadajnicaCategory: strapiCategory(slug: { eq: "dogadajnica" }) {
+      name
+    }
     topArticles: allStrapiArticle(
       sort: { fields: fields___sortDate, order: DESC }
       limit: 3
@@ -215,10 +222,7 @@ const query = graphql`
     ponosnaSkolaArticles: allStrapiArticle(
       sort: { fields: fields___sortDate, order: DESC }
       limit: 4
-      filter: {
-        tags: { elemMatch: { slug: { nin: ["featured", "featured-top"] } } }
-        category: { slug: { eq: "ponosna-skola" } }
-      }
+      filter: { category: { slug: { eq: "ponosna-skola" } } }
     ) {
       edges {
         node {
@@ -229,10 +233,18 @@ const query = graphql`
     viseOdSkoleArticles: allStrapiArticle(
       sort: { fields: fields___sortDate, order: DESC }
       limit: 4
-      filter: {
-        tags: { elemMatch: { slug: { nin: ["featured", "featured-top"] } } }
-        category: { slug: { eq: "vise-od-skole" } }
+      filter: { category: { slug: { eq: "vise-od-skole" } } }
+    ) {
+      edges {
+        node {
+          ...comparisonFields
+        }
       }
+    }
+    dogadajnicaArticles: allStrapiArticle(
+      sort: { fields: fields___sortDate, order: DESC }
+      limit: 5
+      filter: { category: { slug: { eq: "dogadajnica" } } }
     ) {
       edges {
         node {
