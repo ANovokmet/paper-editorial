@@ -64,7 +64,7 @@ const IndexPage = () => {
             <div className="uk-width-1-1 uk-width-1-3@s">
               <VideoArticles />
               <TagArea />
-              <img className="comic__image" src={comic} style={{ height: '100%' }} />
+              <img className="comic__image" src={comic} />
             </div>
           </div>
         </div>
