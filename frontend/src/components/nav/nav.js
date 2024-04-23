@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo-2.png';
 import './nav.css';
 
 const Nav = () => {
@@ -77,8 +77,8 @@ const Nav = () => {
               </ul>
               <Link to="/" className="uk-link-text navbar-brand">
                 <img className="navbar__image" src={logo} style={{ height: '60px' }} />
-                <div className="flex-col">
-                  <div className="navbar__title">{data.strapiGlobal.siteName}</div>
+                <div className="flex-col-end">
+                  {/* <div className="navbar__title">{data.strapiGlobal.siteName}</div> */}
                   <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
                 </div>
               </Link>

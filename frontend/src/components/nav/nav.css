@@ -41,6 +41,11 @@
     flex-direction: column;
     justify-content: center;
 }
+.flex-col-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
 .navbar__title {  
     line-height: 2.5rem;
