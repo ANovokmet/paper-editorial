@@ -1,5 +1,10 @@
 .navbars {
     border-bottom: 1px solid rgb(0 0 0);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--beige);
 }
 
 .navbar--primary {
@@ -24,11 +29,18 @@
     gap: 0.25rem;
     position: relative;
 }
+  
+@media screen and (max-width: 640px)  {
+    .navbar-brand {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 .navbar__image {
     /* position: absolute; */
     z-index: 1;
-    max-height: 76px;
+    max-height: 200px;
     height: 100% !important;
     /* left: -25px; */
     /* top: 14px; */

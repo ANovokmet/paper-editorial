@@ -511,3 +511,13 @@ a.uk-link-text:hover {
   display: block;
   height: auto;
 }
+
+main {
+  margin-top: 247px;
+}
+
+@media screen and (min-width: 640px)  {
+  main {
+    margin-top: 286px;
+  }
+}
