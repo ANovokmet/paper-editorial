@@ -93,6 +93,10 @@ const SEO = ({ seo = {} }) => {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap',
         },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap',
+        },
       ]}
       script={[
         {

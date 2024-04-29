@@ -67,8 +67,9 @@
 }
 
 .navbar__subtitle {
-    color: rgb(49, 168, 255);
-    font-size: 24px;
+    color: rgb(45, 142, 94);  
+    text-shadow: #090907 1px 1px;
+    font-size: 29px;
     font-weight: 700;
     /* margin: -40px 0px 11px 67px; */
 }
@@ -84,6 +85,7 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 0.5rem;
+    flex: 1 0 auto;
 }
 
 .social>* {
@@ -119,10 +121,6 @@
     flex-wrap: nowrap;
 }
 
-.social {
-    flex-wrap: nowrap !important;
-}
-
 .uk-icon {
     min-width: 20px;
 }
@@ -132,4 +130,9 @@
     .navbar--primary .button--plain {
         padding: 0.5rem;
     }
+}
+
+.nav__menu {
+    justify-content: space-between;
+    padding-top: 1rem;
 }

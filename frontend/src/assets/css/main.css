@@ -518,6 +518,12 @@ main {
 
 @media screen and (min-width: 640px)  {
   main {
-    margin-top: 286px;
+    margin-top: 226px;
   }
+}
+
+.sedgwick-ave-display-regular {
+  font-family: "Sedgwick Ave Display", cursive;
+  font-weight: 400;
+  font-style: normal;
 }

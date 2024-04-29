@@ -77,9 +77,22 @@ const Nav = () => {
               </ul>
               <Link to="/" className="uk-link-text navbar-brand">
                 <img className="navbar__image" src={logo} style={{ height: '60px' }} />
-                <div className="flex-col-end">
+                <div className="flex-col nav__menu">
+                  <div className="uk-visible@m">
+                    <ul className="navbar-nav uk-text-center">
+                      {items.map((item, i) => (
+                        <li key={i}>
+                          <Link className="button--rounded" to={item.href}>
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   {/* <div className="navbar__title">{data.strapiGlobal.siteName}</div> */}
-                  <div className="navbar__subtitle">{data.strapiHomepage.hero.subtitle}</div>
+                  <div className="navbar__subtitle sedgwick-ave-display-regular">
+                    {data.strapiHomepage.hero.subtitle}
+                  </div>
                 </div>
               </Link>
             </div>
@@ -111,19 +124,7 @@ const Nav = () => {
             </div>
           </nav>
 
-          <nav className="navbar navbar--secondary uk-container uk-visible@s">
-            <div className="uk-navbar-center">
-              <ul className="navbar-nav uk-text-center">
-                {items.map((item, i) => (
-                  <li key={i}>
-                    <Link className="button--rounded" to={item.href}>
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </nav>
+          <nav className="navbar navbar--secondary uk-container uk-visible@s"></nav>
           <div id="sidenav" className={`uk-offcanvas uk-hidden@m ${open && 'uk-open'}`}>
             <div className="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide sidenav">
               <div className="sidenav__header">

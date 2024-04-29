@@ -18,8 +18,6 @@ const IndexPage = () => {
 
   return (
     <Layout seo={data.strapiHomepage.seo}>
-      <Marquee articles={data.featuredArticles.edges} />
-
       <div className="uk-section section section_gradient" style={{ position: 'relative' }}>
         <div className="uk-container">
           <ArticlesComponent articles={data.featuredArticles.edges} topArticle={data.topFeaturedArticle} />
