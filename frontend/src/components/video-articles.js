@@ -9,7 +9,7 @@ const RecentArticles = () => {
   query {
     articles: allStrapiArticle(
       sort: {fields: fields___sortDate, order: DESC}
-      limit: 6
+      limit: 3
       filter: {category: {slug: {eq: "gledaj"}}}
     ) {
       edges {
