@@ -66,5 +66,6 @@
     "react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825": {
       "react": "^17.0.0"
     }
-  }
+  },
+  "packageManager": "npm@10.2.3"
 }
