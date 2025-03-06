@@ -15,7 +15,7 @@ const IndexPage = () => {
             <div data-uk-grid>
               <div className="uk-width-1-1 uk-width-2-3@m">
                 <div className="carded">
-                  <Markdown source={data.strapiImpressum.content} escapeHtml={false} />
+                  <Markdown allowDangerousHtml={true}>{data.strapiImpressum.content}</Markdown>
                 </div>
               </div>
               <div className="uk-width-1-1 uk-width-1-3@m">

@@ -109,7 +109,7 @@ const Article = ({ data }) => {
                 </div>
 
                 <div className="blog__content">
-                  <Markdown source={article.content} escapeHtml={false} />
+                  <Markdown allowDangerousHtml={true}>{article.content}</Markdown>
                 </div>
 
                 {images && images.length ? (
